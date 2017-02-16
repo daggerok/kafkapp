@@ -2,10 +2,10 @@ kafkapp [![build](https://travis-ci.org/daggerok/kafkapp.svg?branch=master)](htt
 =======
 
 ```fish
-docker-compose start
+docker-compose --project-name=kafkapp start
 # or
 docker-compose --project-name=kafkapp up -d
 gradle payment-query:bootRun
 gradle payment-command:bootRun
-docker-compos stop
+docker-compose stop
 ```

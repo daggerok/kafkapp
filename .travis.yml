@@ -40,14 +40,20 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   # kafka
+#  - docker load < $HOME/docker/spotify_kafkaproxy.tar
   - docker-compose --project-name=kafkapp up -d
   - sleep 5
 script:
-  - gradle --parallel build
+  - gradle clean assemble
+  - gradle test
 after_script:
 #  - killall -9 node
   - gradle --stop
-cache.directories:
-#  - ui/node_modules/
-  - $HOME/.gradle/
-  - $HOME/.m2/
+  - docker-compose stop
+  - docker save spotify/kafkaproxy > $HOME/docker/spotify_kafkaproxy.tar
+cache:
+  directories:
+  #  - ui/node_modules/
+    - $HOME/.gradle/
+    - $HOME/.m2/
+    - $HOME/docker/
