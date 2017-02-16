@@ -1,0 +1,33 @@
+plugins {
+  id 'idea'
+  id 'eclipse'
+  id 'io.spring.dependency-management' version '1.0.0.RELEASE'
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'io.spring.dependency-management'
+
+  group 'daggerok'
+  version '0.0.1'
+
+  sourceCompatibility = targetCompatibility = 1.8
+
+  repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+
+  dependencyManagement {
+    imports {
+      mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.BUILD-SNAPSHOT"
+    }
+  }
+
+  dependencies {
+    runtime 'org.springframework.boot:spring-boot-devtools'
+    compileOnly 'org.projectlombok:lombok'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+  }
+}

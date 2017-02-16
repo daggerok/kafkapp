@@ -1,0 +1,23 @@
+### IntelliJ IDEA ###
+.idea/
+.gradle/
+build/
+gradle*
+*.iml
+*.ipr
+*.iws
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### NetBeans ###
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

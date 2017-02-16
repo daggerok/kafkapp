@@ -1,0 +1,10 @@
+server:
+  port: 0
+spring:
+  application:
+    name: kafkapp-payment-query
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: kafkapp

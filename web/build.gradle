@@ -1,0 +1,9 @@
+plugins {
+  id 'org.springframework.boot' version '1.5.1.RELEASE'
+}
+
+jar { baseName = 'web' }
+
+dependencies {
+  compile('org.springframework.boot:spring-boot-starter-mustache')
+}

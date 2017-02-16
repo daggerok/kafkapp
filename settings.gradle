@@ -1,0 +1,4 @@
+rootProject.name = 'kafkapp'
+include 'payment-command'
+include 'payment-query'
+include 'web'

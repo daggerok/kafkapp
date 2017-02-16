@@ -1,0 +1,15 @@
+version: '2'
+services:
+  kafkapp-kafka-zookeeper:
+    container_name: kafkapp-kafka-zookeeper
+    image: spotify/kafkaproxy
+    environment:
+      ADVERTISED_HOST: 127.0.0.1
+      ADVERTISED_PORT: 9092
+      TOPICS: kafkapp
+      GROUP_ID: messages
+      CONSUMER_THREADS: 1
+    ports:
+      - '2181:2181'
+      - '9092:9092'
+
